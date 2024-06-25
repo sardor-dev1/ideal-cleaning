@@ -4,6 +4,8 @@ import { useState } from "react";
 import { auth } from "@service";
 import { SignUpModal } from "@modal";
 
+import RegistrationImg from "../../assets/images/register.png";
+
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -43,7 +45,10 @@ const Index = () => {
         }}
         email={form.email}
       />
-      <div className="w-full h-screen flex items-center justify-center">
+      <div className="w-full h-screen grid grid-cols-2 items-center gap-10 justify-center">
+        <div className="h-full w-full flex justify-center bg-[#36BAEC]">
+          <img className="w-[400px] object-contain" src={RegistrationImg} alt="" />
+        </div>
         <div className="w-[500px]">
           <h1 className="text-center my-3 font-medium text-[40px]">
             Tizimga kirish
