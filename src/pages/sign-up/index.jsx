@@ -4,7 +4,13 @@ import { useState } from "react";
 import { auth } from "@service";
 import { SignUpModal } from "@modal";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Index = () => {
+  const notifySucces = () => toast.success("Wow so easy!");
+  const notifyError = () => toast.error("Something went error");
+
   const [form, setForm] = useState({});
   const [open, setOpen] = useState(false);
 
@@ -20,9 +26,11 @@ const Index = () => {
       const response = await auth.sign_up(form);
       if (response.status === 200) {
         setOpen(true);
+        notifySucces();
       }
     } catch (error) {
       console.log(error);
+      notifyError();
     }
   };
 
